@@ -1,0 +1,19 @@
+﻿#crepe f0 estimation
+
+stepsize=10
+#chunk size, measured in ms
+
+modelcapacity=full
+#tiny, small, medium, large, full
+#larger capacity takes more time, but much more accurate
+
+windowsize=5
+polyorder=1
+#for f0 smoothing
+
+
+frqtype=1
+#type1=original frq
+#type2=smoothed frq
+
+debug=1
