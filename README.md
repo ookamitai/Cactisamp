@@ -3,7 +3,7 @@ A WIP UTAU resampler in Python
   
 # Overview  
 This is a resampler based on CREPE and pyWorld.  
-The code will be updated as soon as a major progress was made.  
+The code will be updated as soon as a major progress is made.  
   
   
 # Credits  
