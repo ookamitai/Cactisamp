@@ -13,3 +13,4 @@ pyWorld https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder
 Useful docs https://suibianp.github.io/utau-zh-docs/  
 
 Thanks Serix for decoding pitch parameters.
+https://github.com/Serix2004
