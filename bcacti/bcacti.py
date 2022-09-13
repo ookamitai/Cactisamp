@@ -1,13 +1,14 @@
 print("Plz wait...")
-import crepe
-from scipy.io import wavfile
 import os
-from pathlib import Path as pathlibpath
-import numpy
-from scipy.signal import savgol_filter
 import time as timeprocess
-import gui
+from pathlib import Path as pathlibpath, Path
 
+import crepe
+import numpy
+from scipy.io import wavfile
+from scipy.signal import savgol_filter
+
+import gui
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
@@ -81,7 +82,8 @@ def writetoFile(path, stepsize, time, frq, smooth):
 # run this script directly to test it
 
 if __name__ == "__main__":
-    if os.path.exists("cacticonfig.txt") == False:
+    if not Path("cacticonfig.txt").is_file():
+        # Use pathlib.Path instead of os.path to avoid errors with special characters
         print("Cannot read from cacticonfig.txt")
         input()
         exit()
@@ -100,13 +102,15 @@ if __name__ == "__main__":
     starttime = timeprocess.time()
     for filename in fnames:
         c = c + 1
-        targetfilepath = os.path.join(foldername, filename)
-        if os.path.isfile(targetfilepath):
+        targetfilepath = Path(foldername) / filename
+        # Combine the folder name and the file name to get the full path
+        if targetfilepath.is_file():
             # print(targetfilepath)
             targetfilepath, stepsize, listtime, listfrq, listfrqsmo = getPitch(
-                os.path.join(foldername, filename), "cacticonfig.txt"
+                str(targetfilepath), "cacticonfig.txt"
             )
-            writetoFile(targetfilepath, stepsize, listtime, listfrq, listfrqsmo)
+            # str(targetfilepath) is used to convert the Path object to a string
+            writetoFile(str(targetfilepath), stepsize, listtime, listfrq, listfrqsmo)
             print(
                 c, "/", len(fnames), " ", round(c / len(fnames) * 100, 3), "%", sep=""
             )

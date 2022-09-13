@@ -1,5 +1,5 @@
-import pyworld as pw
 import numpy as np
+import pyworld as pw
 
 
 def getFreq(note, A4=440):

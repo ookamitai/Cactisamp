@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 from pathlib import Path as pathlibpath
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"

@@ -1,6 +1,8 @@
+import wave
+
 import matplotlib.pyplot as plot
 import numpy as np
-import wave
+
 
 # shows the sound waves
 def visualize(path: str):
