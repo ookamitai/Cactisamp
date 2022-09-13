@@ -1,11 +1,12 @@
 import PySimpleGUI as sg
 import os
 
+
 def guiwindow():
     file_list = [
         [
             sg.Text("Choose a folder:"),
-            sg.In(size=(25,1), enable_events=True, key="-Folder-"),
+            sg.In(size=(25, 1), enable_events=True, key="-Folder-"),
             sg.FolderBrowse(),
         ],
     ]
@@ -16,7 +17,7 @@ def guiwindow():
         ],
     ]
 
-    window = sg.Window("Folder Browser",layout)
+    window = sg.Window("Folder Browser", layout)
 
     while True:
         event, Values = window.read()
@@ -30,7 +31,9 @@ def guiwindow():
                 file_list_data = []
             fname = []
             for item in file_list_data:
-                if os.path.isfile(os.path.join(folder,item)) and item.lower().endswith(".wav"):
+                if os.path.isfile(os.path.join(folder, item)) and item.lower().endswith(
+                    ".wav"
+                ):
                     fname.append(item)
             window.close()
             return folder, fname
