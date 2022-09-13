@@ -1,0 +1,8 @@
+pyinstaller
+crepe
+scipy
+numpy
+PySimpleGUI
+soundfile
+pyworld
+matplotlib
